@@ -6,9 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CheckboxMenuWrapper extends PrimeWrapper {
+public class SelectCheckboxMenuWrapper extends PrimeWrapper {
 
-    public CheckboxMenuWrapper(WebDriver driver, String id) {
+    public SelectCheckboxMenuWrapper(WebDriver driver, String id) {
         super(driver, id);
     }
 
