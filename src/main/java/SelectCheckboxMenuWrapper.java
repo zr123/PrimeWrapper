@@ -16,7 +16,7 @@ public class SelectCheckboxMenuWrapper extends PrimeWrapper {
     }
 
     public void click(){
-        driver.findElement(By.xpath("//div[@id='" + id + "']/div[3]/span")).click();
+        driver.findElement(By.xpath("//div[@id='" + id + "']/div[3]")).click();
     }
 
     public void selectByValue(String value) throws InterruptedException {
