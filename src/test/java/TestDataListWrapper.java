@@ -2,7 +2,9 @@
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -28,25 +30,26 @@ public class TestDataListWrapper {
     @Test
     public void testDataListWrapperBasic() throws InterruptedException {
         driver.get("https://primefaces.org/showcase/ui/data/dataList.xhtml");
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt695");
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt698");
         for(int i = 1; i <= 10; i++)
-            assertThat(list.getElement(i), matchesPattern("^\\w+, \\d{4}$"));
+            assertThat(list.getListElement(i).getText(), matchesPattern("^\\w+, \\d{4}$"));
     }
 
     @Test
     public void testDataListWrapperDefinition() throws InterruptedException {
         driver.get("https://primefaces.org/showcase/ui/data/dataList.xhtml");
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt698");
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt701");
         for(int i = 1; i <= 5; i++)
-            assertThat(list.getElement(i), matchesPattern("^Brand: \\w+, Year: \\d{4}$"));
+            assertThat(list.getListElement(i).getText(), matchesPattern("^Brand: \\w+, Year: \\d{4}$"));
     }
 
     @Test
     public void testDataListWrapperPaginator() throws InterruptedException {
         driver.get("https://primefaces.org/showcase/ui/data/dataList.xhtml");
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt702");
-        for(int i = 1; i <= 10; i++)
-            assertThat(list.getElement(i), matchesPattern("^\\w+, \\d{4}$"));
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:j_idt705");
+        for(int i = 1; i <= 10; i++){
+            WebElement listElement = list.getListElement(i);
+            assertThat(listElement.findElement(By.xpath("span")).getText(), matchesPattern("^\\w+, \\d{4}$"));
+        }
     }
-
 }

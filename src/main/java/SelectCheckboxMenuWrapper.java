@@ -3,8 +3,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class SelectCheckboxMenuWrapper extends PrimeWrapper {
 
@@ -17,22 +20,26 @@ public class SelectCheckboxMenuWrapper extends PrimeWrapper {
     }
 
     public void selectByValue(String value) throws InterruptedException {
-        // send escape key to make sure it's the drop-down menu is unselected
-        Actions action = new Actions(driver);
-        action.sendKeys(Keys.ESCAPE);
+        openDropdownMenu();
+        driver.findElement(By.xpath("//div[@id='" + id + "_panel']//label[text()='" + value + "']")).click();
+        closeDropdownMenu();
+    }
 
-        // pop dropdown menu
-        Thread.sleep(200);
-        click();
+    public void openDropdownMenu(){
+        WebElement dropdownmenu = driver.findElement(By.xpath("//div[@id='" + id + "_panel']"));
+        if(!dropdownmenu.isDisplayed()) {
+            click();
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='" + id + "_panel']")));
+        }
+    }
 
-        // select element
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        WebElement dropdownmenu = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='" + id + "_panel']//label[text()='" + value + "']")));
-        dropdownmenu.click();
-
-        // close dropdown
-        Thread.sleep(200);
-        click();
-        Thread.sleep(200);
+    public void closeDropdownMenu(){
+        WebElement dropdownmenu = driver.findElement(By.xpath("//div[@id='" + id + "_panel']"));
+        if(dropdownmenu.isDisplayed()) {
+            click();
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='" + id + "_panel']"))));
+        }
     }
 }
