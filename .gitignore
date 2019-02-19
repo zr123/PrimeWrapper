@@ -26,3 +26,8 @@ hs_err_pid*
 target/
 .idea
 *.iml
+.gradle/
+gradlew
+gradlew.bat
+gradle/
+build/
