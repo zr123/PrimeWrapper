@@ -18,5 +18,5 @@ before_script:
   - sleep 3
   
 script:
-  - gradle check
+  - gradle check --info
 
