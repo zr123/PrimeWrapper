@@ -16,7 +16,11 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm i -g npm@^3
   - sleep 3
+  - mvn jetty:run
   
 script:
-  - gradle check --info
+  - mvn test
+  
+after_script:
+  - mvn jetty:stop
 

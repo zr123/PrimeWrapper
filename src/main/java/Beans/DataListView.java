@@ -16,20 +16,7 @@ public class DataListView implements Serializable {
     private Car selectedCar;
     @PostConstruct
     public void init() {
-        cars = new ArrayList<Car>();
-        cars.add(new Car("1", "BMW", 1990, "yellow", 3000, true));
-
-        /*
-        brands[1] = "Mercedes";
-        brands[2] = "Volvo";
-        brands[3] = "Audi";
-        brands[4] = "Renault";
-        brands[5] = "Fiat";
-        brands[6] = "Volkswagen";
-        brands[7] = "Honda";
-        brands[8] = "Jaguar";
-        brands[9] = "Ford";
-        */
+        cars = Car.getCars();
     }
 
     public List<Car> getCars() {
