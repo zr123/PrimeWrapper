@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'org.gretty' version "2.3.1"
 }
 
 repositories {
@@ -16,7 +17,12 @@ dependencies {
     testCompile 'junit:junit:4.13-beta-1'
     testCompile 'org.seleniumhq.selenium:selenium-java:3.+'
     testCompile 'org.hamcrest:java-hamcrest:2.+'
+    compile 'org.primefaces:primefaces:6.+'
+    compile 'com.sun.faces:jsf-api:2.+'
+    compile 'com.sun.faces:jsf-impl:2.+'
+    compile 'org.primefaces:primefaces:6.+'
 }
+
 
 group = 'PrimeWrapper'
 version = '1.0-SNAPSHOT'
