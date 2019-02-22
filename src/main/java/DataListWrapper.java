@@ -2,7 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataListWrapper extends PrimeWrapper {
@@ -12,7 +11,7 @@ public class DataListWrapper extends PrimeWrapper {
     }
 
     public String getText(){
-        return driver.findElement(By.id(id + "_content")).getText();
+        return node.findElement(By.id(id + "_content")).getText();
     }
 
     public WebElement getListElement(int index){

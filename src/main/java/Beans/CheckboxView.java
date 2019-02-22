@@ -2,10 +2,8 @@ package Beans;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
