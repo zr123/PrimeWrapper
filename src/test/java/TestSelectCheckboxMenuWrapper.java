@@ -27,15 +27,15 @@ public class TestSelectCheckboxMenuWrapper {
 
     @Test
     public void testCheckboxMenuBasic() throws InterruptedException {
-        driver.get("https://primefaces.org/showcase/ui/input/checkboxMenu.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "j_idt697:menu");
+        driver.get("http://localhost:9090/SelectCheckbox.xhtml");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:menu");
         checkBoxMenu.selectByValue("Miami");
         checkBoxMenu.selectByValue("Berlin");
         checkBoxMenu.selectByValue("Amsterdam");
         // submit
-        driver.findElement(By.id("j_idt697:j_idt705")).click();
+        driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "j_idt697:j_idt707");
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:selectedBasic");
         assertEquals("Miami", list.getListElement(1).getText());
         assertEquals("Berlin", list.getListElement(2).getText());
         assertEquals("Amsterdam", list.getListElement(3).getText());
@@ -43,15 +43,15 @@ public class TestSelectCheckboxMenuWrapper {
 
     @Test
     public void testCheckboxMenuMultiple() throws InterruptedException {
-        driver.get("https://primefaces.org/showcase/ui/input/checkboxMenu.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "j_idt697:multiple");
+        driver.get("http://localhost:9090/SelectCheckbox.xhtml");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:multiple");
         checkBoxMenu.selectByValue("Miami");
         checkBoxMenu.selectByValue("Berlin");
         checkBoxMenu.selectByValue("Amsterdam");
         // submit
-        driver.findElement(By.id("j_idt697:j_idt705")).click();
+        driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "j_idt697:j_idt710");
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:selectedMultiple");
         assertEquals("Miami", list.getListElement(1).getText());
         assertEquals("Berlin", list.getListElement(2).getText());
         assertEquals("Amsterdam", list.getListElement(3).getText());
@@ -60,15 +60,15 @@ public class TestSelectCheckboxMenuWrapper {
 
     @Test
     public void testCheckboxMenuGrouped() throws InterruptedException {
-        driver.get("https://primefaces.org/showcase/ui/input/checkboxMenu.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "j_idt697:grouped");
+        driver.get("http://localhost:9090/SelectCheckbox.xhtml");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:grouped");
         checkBoxMenu.selectByValue("BMW");
         checkBoxMenu.selectByValue("GM");
         checkBoxMenu.selectByValue("Ford");
         // submit
-        driver.findElement(By.id("j_idt697:j_idt705")).click();
+        driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        DataListWrapper list = PrimeWrapper.findDataList(driver, "j_idt697:j_idt713");
+        DataListWrapper list = PrimeWrapper.findDataList(driver, "form:selectedGrouped");
         assertEquals("BMW", list.getListElement(1).getText());
         assertEquals("GM", list.getListElement(2).getText());
         assertEquals("Ford", list.getListElement(3).getText());

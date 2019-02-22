@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>PrimeFaces Hello World Example</title>
+</h:head>
+
+<h:body>
+
+    <h:form id="form">
+        <h:panelGrid columns="2" cellpadding="5">
+
+            <h:outputLabel for="menu" value="Basic:" />
+            <p:selectCheckboxMenu id="menu" value="#{checkboxView.selectedCities}" label="Cities"
+                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                <f:selectItems value="#{checkboxView.cities}" />
+            </p:selectCheckboxMenu>
+
+            <h:outputLabel for="multiple" value="Multiple:" />
+            <p:selectCheckboxMenu id="multiple" value="#{checkboxView.selectedCities2}" label="Cities" multiple="true"
+                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                <f:selectItems value="#{checkboxView.cities}" />
+            </p:selectCheckboxMenu>
+
+            <h:outputLabel for="grouped" value="Grouped:" />
+            <p:selectCheckboxMenu id="grouped" value="#{checkboxView.selectedCars}" label="Cars" multiple="true"
+                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                <f:selectItems value="#{checkboxView.cars}" />
+            </p:selectCheckboxMenu>
+        </h:panelGrid>
+
+        <p:commandButton id="submit" value="Submit" update="displayItems" oncomplete="PF('itemDialog').show()" style="margin-top:10px;" />
+
+        <p:dialog header="Selected Items" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
+            <p:outputPanel id="displayItems">
+                <p:dataList id="selectedBasic" value="#{checkboxView.selectedCities}" var="city" emptyMessage="No cities selected" style="margin-bottom: 10px;">
+                    <f:facet name="header">
+                        Basic
+                    </f:facet>
+                    #{city}
+                </p:dataList>
+
+                <p:dataList id="selectedMultiple" value="#{checkboxView.selectedCities2}" var="city" emptyMessage="No cities selected" style="margin-bottom: 10px;">
+                    <f:facet name="header">
+                        Multiple
+                    </f:facet>
+                    #{city}
+                </p:dataList>
+
+                <p:dataList id="selectedGrouped" value="#{checkboxView.selectedCars}" var="car" emptyMessage="No cars selected">
+                    <f:facet name="header">
+                        Grouped
+                    </f:facet>
+                    #{car}
+                </p:dataList>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+</h:body>
+</html>
