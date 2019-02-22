@@ -17,6 +17,7 @@ before_script:
   - npm i -g npm@^3
   - sleep 3
   - mvn jetty:run &
+  - sleep 30
   
 script:
   - mvn test
