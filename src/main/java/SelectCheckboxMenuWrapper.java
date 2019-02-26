@@ -11,18 +11,17 @@ public class SelectCheckboxMenuWrapper extends PrimeWrapper {
     }
 
     public void click(){
-        driver.findElement(By.xpath("//div[@id='" + id + "']/div[3]")).click();
+        node.findElement(By.xpath("//div[@id='" + id + "']/div[3]")).click();
     }
 
-    public void selectByValue(String value) {
+    public void selectItemByValue(String value) {
         openDropdownMenu();
-        driver.findElement(By.xpath("//div[@id='" + id + "_panel']//label[text()='" + value + "']")).click();
+        node.findElement(By.xpath("//div[@id='" + id + "_panel']//label[text()='" + value + "']")).click();
         closeDropdownMenu();
     }
 
     public void openDropdownMenu(){
-        WebElement dropdownmenu = driver.findElement(By.xpath("//div[@id='" + id + "_panel']"));
-        if(!dropdownmenu.isDisplayed()) {
+        if(!isMenuOpen()) {
             click();
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='" + id + "_panel']")));
@@ -30,11 +29,15 @@ public class SelectCheckboxMenuWrapper extends PrimeWrapper {
     }
 
     public void closeDropdownMenu(){
-        WebElement dropdownmenu = driver.findElement(By.xpath("//div[@id='" + id + "_panel']"));
-        if(dropdownmenu.isDisplayed()) {
+        if(isMenuOpen()) {
             click();
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='" + id + "_panel']"))));
         }
+    }
+
+    private boolean isMenuOpen(){
+        WebElement dropdownmenu = node.findElement(By.xpath("//div[@id='" + id + "_panel']"));
+        return dropdownmenu.isDisplayed();
     }
 }

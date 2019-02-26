@@ -4,9 +4,9 @@ import java.util.List;
 
 public abstract class PrimeWrapper implements WebElement{
 
-    protected WebDriver driver;
-    protected String id;
-    protected WebElement node;
+    WebDriver driver;
+    String id;
+    WebElement node;
 
     public PrimeWrapper(WebDriver driver, String id){
         this.driver = driver;
@@ -14,7 +14,7 @@ public abstract class PrimeWrapper implements WebElement{
         node = driver.findElement(By.id(id));
     }
 
-    public static SelectCheckboxMenuWrapper findCheckBoxMenu(WebDriver driver, String id) {
+    public static SelectCheckboxMenuWrapper findSelectCheckboxMenu(WebDriver driver, String id) {
         return new SelectCheckboxMenuWrapper(driver, id);
     }
 

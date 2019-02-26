@@ -27,10 +27,10 @@ public class TestSelectCheckboxMenuWrapper {
     @Test
     public void testCheckboxMenuBasic() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:menu");
-        checkBoxMenu.selectByValue("Miami");
-        checkBoxMenu.selectByValue("Berlin");
-        checkBoxMenu.selectByValue("Amsterdam");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findSelectCheckboxMenu(driver, "form:menu");
+        checkBoxMenu.selectItemByValue("Miami");
+        checkBoxMenu.selectItemByValue("Berlin");
+        checkBoxMenu.selectItemByValue("Amsterdam");
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
@@ -43,10 +43,10 @@ public class TestSelectCheckboxMenuWrapper {
     @Test
     public void testCheckboxMenuMultiple() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:multiple");
-        checkBoxMenu.selectByValue("Miami");
-        checkBoxMenu.selectByValue("Berlin");
-        checkBoxMenu.selectByValue("Amsterdam");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findSelectCheckboxMenu(driver, "form:multiple");
+        checkBoxMenu.selectItemByValue("Miami");
+        checkBoxMenu.selectItemByValue("Berlin");
+        checkBoxMenu.selectItemByValue("Amsterdam");
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
@@ -60,10 +60,10 @@ public class TestSelectCheckboxMenuWrapper {
     @Test
     public void testCheckboxMenuGrouped() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
-        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findCheckBoxMenu(driver, "form:grouped");
-        checkBoxMenu.selectByValue("BMW");
-        checkBoxMenu.selectByValue("GM");
-        checkBoxMenu.selectByValue("Ford");
+        SelectCheckboxMenuWrapper checkBoxMenu = PrimeWrapper.findSelectCheckboxMenu(driver, "form:grouped");
+        checkBoxMenu.selectItemByValue("BMW");
+        checkBoxMenu.selectItemByValue("GM");
+        checkBoxMenu.selectItemByValue("Ford");
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
