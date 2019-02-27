@@ -74,11 +74,9 @@ public class TestSelectCheckboxMenuWrapper {
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        Thread.sleep(1000);
         DataListWrapper list = PrimeWrapper.findDataList(driver, "form:selectedGrouped");
         assertEquals("BMW", list.getListElement(1).getText());
         assertEquals("GM", list.getListElement(2).getText());
         assertEquals("Ford", list.getListElement(3).getText());
-        Thread.sleep(1000);
     }
 }

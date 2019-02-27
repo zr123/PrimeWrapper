@@ -33,7 +33,7 @@ public class TestDataListWrapper {
         // sleep a bite after tests to prevent a Stale Element Reference Exception
         Thread.sleep(100);
     }
-    
+
     @Test
     public void testDataListWrapperBasic() throws InterruptedException {
         driver.get("http://localhost:9090/DataList.xhtml");
