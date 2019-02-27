@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,6 +23,12 @@ public class TestSelectCheckboxMenuWrapper {
     @AfterClass
     public static void tearDown() throws Exception {
         driver.quit();
+    }
+
+    @After
+    public void after() throws Exception{
+        // sleep a bite after tests to prevent a Stale Element Reference Exception
+        Thread.sleep(100);
     }
 
     @Test
@@ -67,9 +74,11 @@ public class TestSelectCheckboxMenuWrapper {
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
+        Thread.sleep(1000);
         DataListWrapper list = PrimeWrapper.findDataList(driver, "form:selectedGrouped");
         assertEquals("BMW", list.getListElement(1).getText());
         assertEquals("GM", list.getListElement(2).getText());
         assertEquals("Ford", list.getListElement(3).getText());
+        Thread.sleep(1000);
     }
 }
