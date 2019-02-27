@@ -14,8 +14,7 @@ public class DataListWrapper extends PrimeWrapper {
         return node.findElement(By.id(id + "_content")).getText();
     }
 
-    public WebElement getListElement(int index){
-        List<WebElement> listElement = node.findElements(By.xpath("//*[@id='" + id + "_list']/*[self::li or self::dt]"));
-        return listElement.get(index-1);
+    public List<WebElement> getListElements(){
+        return node.findElements(By.xpath("//*[@id='" + id + "_list']/*[self::li or self::dt]"));
     }
 }
