@@ -28,7 +28,7 @@ public class TestSelectCheckboxMenuWrapper {
     @After
     public void after() throws Exception{
         // sleep a bite after tests to prevent a Stale Element Reference Exception
-        Thread.sleep(100);
+        Thread.sleep(500);
     }
 
     @Test
@@ -62,7 +62,6 @@ public class TestSelectCheckboxMenuWrapper {
         assertEquals("Berlin", list.getListElement(2).getText());
         assertEquals("Amsterdam", list.getListElement(3).getText());
     }
-
 
     @Test
     public void testCheckboxMenuGrouped() throws InterruptedException {
