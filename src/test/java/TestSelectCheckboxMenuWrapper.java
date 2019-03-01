@@ -27,6 +27,12 @@ public class TestSelectCheckboxMenuWrapper {
         driver.quit();
     }
 
+    @After
+    public void afterTest() throws Exception {
+        // delay to prevent stale element reference exceptions
+        Thread.sleep(1000);
+    }
+
     @Test
     public void testCheckboxMenuBasic() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
