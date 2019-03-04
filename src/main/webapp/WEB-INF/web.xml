@@ -3,15 +3,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!-- Define the JSF servlet (manages the request processing life cycle
-      for JavaServer Faces) -->
     <servlet>
         <servlet-name>faces-servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <!-- Map following files to the JSF servlet -->
     <servlet-mapping>
         <servlet-name>faces-servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>

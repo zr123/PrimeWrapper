@@ -26,13 +26,7 @@ public class TestSelectCheckboxMenuWrapper {
     public static void tearDown() throws Exception {
         driver.quit();
     }
-
-    @After
-    public void afterTest() throws Exception {
-        // delay to prevent stale element reference exceptions
-        Thread.sleep(1000);
-    }
-
+    
     @Test
     public void testCheckboxMenuBasic() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
@@ -47,6 +41,7 @@ public class TestSelectCheckboxMenuWrapper {
         assertEquals("Miami", list.get(0).getText());
         assertEquals("Berlin", list.get(1).getText());
         assertEquals("Amsterdam", list.get(2).getText());
+        Thread.sleep(1000);
     }
 
     @Test
@@ -63,6 +58,7 @@ public class TestSelectCheckboxMenuWrapper {
         assertEquals("Miami", list.get(0).getText());
         assertEquals("Berlin", list.get(1).getText());
         assertEquals("Amsterdam", list.get(2).getText());
+        Thread.sleep(1000);
     }
 
 
@@ -80,5 +76,6 @@ public class TestSelectCheckboxMenuWrapper {
         assertEquals("BMW", list.get(0).getText());
         assertEquals("GM", list.get(1).getText());
         assertEquals("Ford", list.get(2).getText());
+        Thread.sleep(1000);
     }
 }
