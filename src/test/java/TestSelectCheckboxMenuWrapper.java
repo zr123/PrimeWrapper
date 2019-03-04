@@ -26,7 +26,7 @@ public class TestSelectCheckboxMenuWrapper {
     public static void tearDown() throws Exception {
         driver.quit();
     }
-    
+
     @Test
     public void testCheckboxMenuBasic() throws InterruptedException {
         driver.get("http://localhost:9090/SelectCheckbox.xhtml");
@@ -37,11 +37,9 @@ public class TestSelectCheckboxMenuWrapper {
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        List<WebElement> list = PrimeWrapper.findDataList(driver, "form:selectedBasic").getListElements();
-        assertEquals("Miami", list.get(0).getText());
-        assertEquals("Berlin", list.get(1).getText());
-        assertEquals("Amsterdam", list.get(2).getText());
-        Thread.sleep(1000);
+        assertEquals("Miami", PrimeWrapper.findDataList(driver, "form:selectedBasic").getListElements().get(0).getText());
+        assertEquals("Berlin", PrimeWrapper.findDataList(driver, "form:selectedBasic").getListElements().get(1).getText());
+        assertEquals("Amsterdam", PrimeWrapper.findDataList(driver, "form:selectedBasic").getListElements().get(2).getText());
     }
 
     @Test
@@ -54,13 +52,10 @@ public class TestSelectCheckboxMenuWrapper {
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        List<WebElement> list = PrimeWrapper.findDataList(driver, "form:selectedMultiple").getListElements();
-        assertEquals("Miami", list.get(0).getText());
-        assertEquals("Berlin", list.get(1).getText());
-        assertEquals("Amsterdam", list.get(2).getText());
-        Thread.sleep(1000);
+        assertEquals("Miami", PrimeWrapper.findDataList(driver, "form:selectedMultiple").getListElements().get(0).getText());
+        assertEquals("Berlin", PrimeWrapper.findDataList(driver, "form:selectedMultiple").getListElements().get(1).getText());
+        assertEquals("Amsterdam", PrimeWrapper.findDataList(driver, "form:selectedMultiple").getListElements().get(2).getText());
     }
-
 
     @Test
     public void testCheckboxMenuGrouped() throws InterruptedException {
@@ -72,10 +67,8 @@ public class TestSelectCheckboxMenuWrapper {
         // submit
         driver.findElement(By.id("form:submit")).click();
         // check if the right element got selected
-        List<WebElement> list = PrimeWrapper.findDataList(driver, "form:selectedGrouped").getListElements();
-        assertEquals("BMW", list.get(0).getText());
-        assertEquals("GM", list.get(1).getText());
-        assertEquals("Ford", list.get(2).getText());
-        Thread.sleep(1000);
+        assertEquals("BMW", PrimeWrapper.findDataList(driver, "form:selectedGrouped").getListElements().get(0).getText());
+        assertEquals("GM", PrimeWrapper.findDataList(driver, "form:selectedGrouped").getListElements().get(1).getText());
+        assertEquals("Ford", PrimeWrapper.findDataList(driver, "form:selectedGrouped").getListElements().get(2).getText());
     }
 }
