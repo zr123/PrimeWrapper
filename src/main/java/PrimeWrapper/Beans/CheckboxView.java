@@ -1,14 +1,14 @@
 package PrimeWrapper.Beans;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class CheckboxView {
 

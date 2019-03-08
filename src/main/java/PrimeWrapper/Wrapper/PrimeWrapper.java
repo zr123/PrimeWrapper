@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 
 import java.util.List;
 
-public abstract class PrimeWrapper implements WebElement{
+public abstract class PrimeWrapper implements WebElement {
 
     WebDriver driver;
     String id;

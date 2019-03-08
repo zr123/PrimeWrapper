@@ -16,12 +16,12 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm i -g npm@^3
   - sleep 3
-  - mvn jetty:run &
+  - mvn spring-boot:run
   - sleep 30
   
 script:
   - mvn test
   
 after_script:
-  - mvn jetty:stop
+  - mvn spring-boot:stop
 
