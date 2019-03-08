@@ -96,7 +96,7 @@
                 <version>9.4.8.v20171121</version>
                 <configuration>
                     <httpConnector>
-                        <port>9090</port>
+                        <port>8080</port>
                     </httpConnector>
                 </configuration>
             </plugin>

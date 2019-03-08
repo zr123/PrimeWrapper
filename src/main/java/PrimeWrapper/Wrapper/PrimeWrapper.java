@@ -1,3 +1,5 @@
+package PrimeWrapper.Wrapper;
+
 import org.openqa.selenium.*;
 
 import java.util.List;

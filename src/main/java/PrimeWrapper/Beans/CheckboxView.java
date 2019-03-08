@@ -1,13 +1,15 @@
-package Beans;
+package PrimeWrapper.Beans;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import javax.faces.view.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
+@ViewScoped
 public class CheckboxView {
 
     private String[] selectedConsoles;

@@ -1,6 +1,7 @@
+package PrimeWrapper.Wrapper;
 
-import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -28,25 +29,27 @@ public class TestDataListWrapper {
         driver.quit();
     }
 
+    @Before
+    public void before(){
+        driver.get("http://localhost:8080/DataList.xhtml");
+    }
+
     @Test
-    public void testDataListWrapperBasic() throws InterruptedException {
-        driver.get("http://localhost:9090/DataList.xhtml");
+    public void testDataListWrapperBasic() {
         DataListWrapper list = PrimeWrapper.findDataList(driver, "form:basic");
         for(int i = 0; i < 10; i++)
             assertThat(list.getListElements().get(i).getText(), matchesPattern("^\\w+, \\d{4}$"));
     }
 
     @Test
-    public void testDataListWrapperDefinition() throws InterruptedException {
-        driver.get("http://localhost:9090/DataList.xhtml");
+    public void testDataListWrapperDefinition() {
         DataListWrapper list = PrimeWrapper.findDataList(driver, "form:definition");
         for(int i = 0; i < 5; i++)
             assertThat(list.getListElements().get(i).getText(), matchesPattern("^Brand: \\w+, Year: \\d{4}$"));
     }
 
     @Test
-    public void testDataListWrapperPaginator() throws InterruptedException {
-        driver.get("http://localhost:9090/DataList.xhtml");
+    public void testDataListWrapperPaginator() {
         DataListWrapper list = PrimeWrapper.findDataList(driver, "form:paginator");
         for(int i = 0; i < 10; i++){
             WebElement listElement = list.getListElements().get(i);
