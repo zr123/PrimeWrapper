@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+    <h:form id="form">
+        <p:growl id="msgs" showDetail="true" />
+
+        <p:panel id="basic" header="Basic" footer="Details" style="margin-bottom:20px">
+            <h:outputText value="This is the content." />
+        </p:panel>
+
+        <p:panel id="toggleable" header="Toggleable" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+
+            <p:ajax event="close" listener="#{panelView.onClose}" update="msgs" />
+            <p:ajax event="toggle" listener="#{panelView.onToggle}" update="msgs" />
+
+            <h:outputText value="This is the content." />
+
+            <f:facet name="options">
+                <p:menu>
+                    <p:submenu label="Settings">
+                        <p:menuitem value="Toggle" url="#" icon="pi pi-clone" onclick="PF('panel').toggle()" />
+                        <p:menuitem value="Remove" url="#" icon="pi pi-times" onclick="PF('panel').close()" />
+                    </p:submenu>
+                </p:menu>
+            </f:facet>
+        </p:panel>
+
+        <p:panel id="custom" header="Custom Actions" style="margin-bottom:20px">
+            <h:outputText value="This is the content." />
+
+            <f:facet name="actions">
+                <h:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"><h:outputText styleClass="ui-icon pi pi-question" /></h:commandLink>
+                <h:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"><h:outputText styleClass="ui-icon pi pi-star" /></h:commandLink>
+            </f:facet>
+        </p:panel>
+
+        <p:panel id="horizontal" header="Horizontal Toggle" toggleable="true" toggleOrientation="horizontal">
+            <h:outputText value="This is the content." />
+        </p:panel>
+    </h:form>
+
+</h:body>
+</html>

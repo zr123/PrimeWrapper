@@ -21,7 +21,7 @@ public class TestDataListWrapper {
     @BeforeClass
     public static void setup() throws Exception{
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @AfterClass
